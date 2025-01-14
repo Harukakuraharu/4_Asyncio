@@ -10,8 +10,6 @@ class Config(BaseSettings):
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
 
-    
-
     @computed_field
     def async_dsn(self) -> str:
         """Ссылка для асинхронного подключения к БД"""

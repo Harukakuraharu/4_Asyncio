@@ -23,3 +23,22 @@ pandas = "^2.2.3"
 more-itertools = "^10.5.0"
 xlrd = "^2.0.1"
 aiofiles = "^24.1.0"
+
+# black
+[tool.black]
+line-length = 79
+extend-exclude = "migrations/"
+
+# isort
+[tool.isort]
+profile = "black"
+extend_skip_glob = ["migrations"]
+known_local_folder=["core", "crud", "api", "models", "schemas", "tests", "main", "utils"]
+line_length = 79
+lines_after_imports = 2
+
+
+[tool.pylint]
+ignore = [".git", "__pycache__", ".venv"]
+max-line-length = 79
+disable = ["C0114", "C0115", "C0116", "W1514", "W3101", "R0903", "C0103"]

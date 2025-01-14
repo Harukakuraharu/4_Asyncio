@@ -39,3 +39,9 @@ docker compose exec имя_контейнера psql -U имя_пользова�
 Или посмотреть данные можно через pgAdmin по ссылке **localhost:80**, логин и пароль указаны в файле [**docker-compose.yaml**](https://github.com/Harukakuraharu/4_Asyncio/blob/main/docker-compose.yaml) в *PGADMIN_DEFAULT_EMAIL* и *PGADMIN_DEFAULT_PASSWORD*. Данные для подключения к БД в [**env.example**](https://github.com/Harukakuraharu/4_Asyncio/blob/main/env.example)
 
 *Удалять файлы не нужно, после прочтения файла и записи в БД, файлы удаляются автоматически*
+
+
+### Сравнение асинхронного и синхронного парсера
+
+1. [Асинхронный парсер](https://github.com/Harukakuraharu/4_Asyncio/blob/main/async_parser.jpg)
+2. [Синхронный парсер](https://github.com/Harukakuraharu/4_Asyncio/blob/main/sync_parser.jpg)

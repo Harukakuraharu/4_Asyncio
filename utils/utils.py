@@ -16,7 +16,10 @@ class FileDownloader:
     async def initial_download(self, current_date: str) -> None:
         """Initial download file and parsing for insert to database"""
 
-        url = f"https://spimex.com/upload/reports/oil_xls/oil_xls_{current_date}162000.xls?r=9455"
+        url = (
+            f"https://spimex.com/upload/reports/oil_xls/oil_xls_"
+            f"{current_date}162000.xls?r=9455"
+        )
         filename = f"{current_date}.xls"
         await self.download_file(url, filename)
         try:
