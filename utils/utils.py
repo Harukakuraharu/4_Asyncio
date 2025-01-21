@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass, field
+from datetime import datetime
 
 import aiohttp
 import pandas as pd
@@ -62,12 +63,15 @@ class FileParser:
         self.data = await self.get_data(self.filename)
         date_data = self.data["Форма СЭТ-БТ"].iloc[2].split(": ")
         self.data.columns = list(range(15))
-        self.data = self.data[[1, 2, 3, 4, 5, 14]][self.data[14] != "-"].dropna()
+        self.data = self.data[[1, 2, 3, 4, 5, 14]][
+            self.data[14] != "-"
+        ].dropna()
         self.data.drop(5, inplace=True)
         return date_data[-1]
 
     async def make_data_list(self, date_data: str) -> list:
         """Get list with data for insert in to database"""
+        date_format = datetime.strptime(date_data, "%d.%m.%Y")
         return [
             {
                 "exchange_product_id": row[1],
@@ -79,7 +83,7 @@ class FileParser:
                 "volume": row[4],
                 "total": row[5],
                 "count": row[14],
-                "date": date_data,
+                "date": date_format,
             }
             for _, row in self.data.iterrows()
         ]
