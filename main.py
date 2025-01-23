@@ -14,7 +14,8 @@ async def main():
     date_start = date(2023, 1, 1)
     date_end = date.today()
     delta = date_end - date_start
-    for day in chunked(range(delta.days + 1), 10):
+    asyncio.sleep(0.5)
+    for day in chunked(range(delta.days + 1), 5):
         current_date = [
             (date_start + timedelta(days=time)).strftime("%Y%m%d") for time in day
         ]
