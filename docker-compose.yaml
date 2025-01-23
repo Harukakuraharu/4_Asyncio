@@ -9,10 +9,10 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
 
 
-  pg_admin:
-    image: dpage/pgadmin4  
-    environment:
-      PGADMIN_DEFAULT_EMAIL: user@ru.ru
-      PGADMIN_DEFAULT_PASSWORD: user
-    ports:
-      - 80:80   
+  # pg_admin:
+  #   image: dpage/pgadmin4  
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: user@ru.ru
+  #     PGADMIN_DEFAULT_PASSWORD: user
+  #   ports:
+  #     - 80:80   
